@@ -391,10 +391,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Nifer cyfranwyr:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Nifer o gyfraniadau (commits):</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Diweddariad diwethaf:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Ystadegau LineageOS</string>
-    <string name="anonymous_statistics_summary">Helpu i wella LineageOS gan ganiatáu casglu adroddiadau ystadegau anhysbys</string>
+    <string name="anonymous_statistics_title">Ystadegau Materium</string>
+    <string name="anonymous_statistics_summary">Helpu i wella Materium gan ganiatáu casglu adroddiadau ystadegau anhysbys</string>
     <string name="anonymous_statistics_warning_title">Ynghylch</string>
-    <string name="anonymous_statistics_warning">Bydd cytuno i rannu Ystadegau LineageOS yn caniatáu data na sydd yn bersonol i gael ei rannu gyda datblygwyr LineageOS er mwyn tracio gosodiadau unigryw ar draws dyfeisiau. Bydd y wybodaeth a rennir yn cynnwys dynodwr unigryw i\'w adnabod heb gyfaddawdu dy breifatrwydd na dy ddata personol. Caiff y data ei rannu pob tro mae\'r system yn dechrau.\n\nI weld enghraifft o\'r data sy\'n cael ei rannu, tapia Rhagolwg Data.</string>
+    <string name="anonymous_statistics_warning">Bydd cytuno i rannu Ystadegau Materium yn caniatáu data na sydd yn bersonol i gael ei rannu gyda datblygwyr Materium er mwyn tracio gosodiadau unigryw ar draws dyfeisiau. Bydd y wybodaeth a rennir yn cynnwys dynodwr unigryw i\'w adnabod heb gyfaddawdu dy breifatrwydd na dy ddata personol. Caiff y data ei rannu pob tro mae\'r system yn dechrau.\n\nI weld enghraifft o\'r data sy\'n cael ei rannu, tapia Rhagolwg Data.</string>
     <string name="enable_reporting_title">Caniatáu adroddiadau</string>
     <string name="preview_data_title">Rhagolwg o\'r data</string>
     <string name="view_stats_title">Gweld ystadegau</string>

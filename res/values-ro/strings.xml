@@ -407,10 +407,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Total contribuitori:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Total commit-uri:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Ultima actualizare:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Statistici LineageOS</string>
-    <string name="anonymous_statistics_summary">Ajutați la îmbunătățirea lui LineageOS prin optarea pentru raportarea anonimă de statistici</string>
+    <string name="anonymous_statistics_title">Statistici Materium</string>
+    <string name="anonymous_statistics_summary">Ajutați la îmbunătățirea lui Materium prin optarea pentru raportarea anonimă de statistici</string>
     <string name="anonymous_statistics_warning_title">Despre</string>
-    <string name="anonymous_statistics_warning">Optând să trimiteți Statistici LineageOS, le permiteți dezvoltatorilor LineageOS
+    <string name="anonymous_statistics_warning">Optând să trimiteți Statistici Materium, le permiteți dezvoltatorilor Materium
         să primească date ne-personale pentru a urmări instalările unice la o gamă mare de dispozitive. Informația transmisă include un identificator unic,
         care nu vă compromite intimitatea sau datele personale. Datele sunt trimise la fiecare pornire a dispozitivului.\n\nPentru a vedea un exemplu de date ce se trimit, apăsați pe Previzualizare Date.</string>
     <string name="enable_reporting_title">Activare raportare</string>

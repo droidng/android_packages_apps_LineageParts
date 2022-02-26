@@ -346,10 +346,10 @@
     <string name="contributors_cloud_failed_message">Kan ikke indlæse bidragyderdata</string>
     <string name="contributor_info_menu">Bidragyderinfo</string>
     <string name="contributions_info_menu">Bidrag-info</string>
-    <string name="anonymous_statistics_title">LineageOS-statistikker</string>
-    <string name="anonymous_statistics_summary">Hjælp med at gøre LineageOS bedre, ved at deltage i anonym statistik-rapportering</string>
+    <string name="anonymous_statistics_title">Materium-statistikker</string>
+    <string name="anonymous_statistics_summary">Hjælp med at gøre Materium bedre, ved at deltage i anonym statistik-rapportering</string>
     <string name="anonymous_statistics_warning_title">Om</string>
-    <string name="anonymous_statistics_warning">Deltagelse i LineageOS Statistikker vil tillade ikke-personlige data, at blive indsendt til
+    <string name="anonymous_statistics_warning">Deltagelse i Materium Statistikker vil tillade ikke-personlige data, at blive indsendt til
         udviklerne af LineageOS, for at spore unikke installeringer, på tværs af enheder. Den indsendte information inkluderer en unik 
         som ikke kompromitterer dit privatliv, eller personlige data. Dataene indsendes under hver opstart.\n\nTryk på Forhåndsvis Data, for et eksempel på de data, der indsendes.</string>
     <string name="enable_reporting_title">Aktivér rapportering</string>

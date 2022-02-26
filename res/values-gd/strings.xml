@@ -403,10 +403,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Com-pàirtichean iomlan:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Commits iomlan:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>An t-ùrachadh mu dheireadh:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Stadastaireachd air LineageOS</string>
-    <string name="anonymous_statistics_summary">Cuidich leinn a thoirt piseach air LineageOS is tu a’ cur aithrisean stadastaireachd gun urra an comas</string>
+    <string name="anonymous_statistics_title">Stadastaireachd air Materium</string>
+    <string name="anonymous_statistics_summary">Cuidich leinn a thoirt piseach air Materium is tu a’ cur aithrisean stadastaireachd gun urra an comas</string>
     <string name="anonymous_statistics_warning_title">Mu dhèidhinn</string>
-    <string name="anonymous_statistics_warning">Ma cheadaicheas tu gun cruinnich LineageOS stadastaireachd, thèid dàta neo-phearsanta a chur a-null gu
+    <string name="anonymous_statistics_warning">Ma cheadaicheas tu gun cruinnich Materium stadastaireachd, thèid dàta neo-phearsanta a chur a-null gu
         luchd-leasachaidh LineageOS airson stàlaidhean fa leth a thracadh thar uidheaman. Gabhaidh am fiosrachadh a thèid a chur a-null a-steach aithnichear àraidh
         nach bris a-steach air do phrìobhaideachd no dàta phearsanta. Thèid an dàta a chur a-null gach turas a thèid an t-uidheam a bhùtadh.\n\nAirson ball-eisimpleir dhen dàta a thèid a chur a-null, thòir gnogag air “Ro-sheall an dàta”.</string>
     <string name="enable_reporting_title">Cuir na h-aithrisean an comas</string>
