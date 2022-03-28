@@ -396,9 +396,9 @@
                  <b>Общо промени:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Последна актуализация:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
     <string name="anonymous_statistics_title">Статистики</string>
-    <string name="anonymous_statistics_summary">Помогнете да направим Materium по-добър, като разрешите да събира анонимни статистически данни</string>
+    <string name="anonymous_statistics_summary">Помогнете да направим droid-ng по-добър, като разрешите да събира анонимни статистически данни</string>
     <string name="anonymous_statistics_warning_title">За проложението</string>
-    <string name="anonymous_statistics_warning">Ще позволи на Materium Statistics да изпраща не лична информация  на разработчиците от Materium, за проследяване на инсталациите в устройството. Предоставената информация включва уникален идентификатор, който не застрашава вашата поверителност или лични данни. Данните се подават по време на всяко зареждане.\n\nПример за данните, които са подадени.</string>
+    <string name="anonymous_statistics_warning">Ще позволи на droid-ng Statistics да изпраща не лична информация  на разработчиците от droid-ng, за проследяване на инсталациите в устройството. Предоставената информация включва уникален идентификатор, който не застрашава вашата поверителност или лични данни. Данните се подават по време на всяко зареждане.\n\nПример за данните, които са подадени.</string>
     <string name="enable_reporting_title">Разреши отчитане</string>
     <string name="preview_data_title">Визуализиране на данните</string>
     <string name="view_stats_title">Преглед на статистиките</string>

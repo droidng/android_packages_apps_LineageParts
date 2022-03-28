@@ -407,10 +407,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Skupaj sodelavcev:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Skupaj prispevkov:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Zadnja posodobitev:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Statistika Materium</string>
-    <string name="anonymous_statistics_summary">Pomagajte izboljšati Materium tako, da izberete pošiljanje anonimne statistike</string>
+    <string name="anonymous_statistics_title">Statistika droid-ng</string>
+    <string name="anonymous_statistics_summary">Pomagajte izboljšati droid-ng tako, da izberete pošiljanje anonimne statistike</string>
     <string name="anonymous_statistics_warning_title">O aplikaciji</string>
-    <string name="anonymous_statistics_warning">Izbira statistike Materium bo dovolila pošiljanje neosebnih podatkov
+    <string name="anonymous_statistics_warning">Izbira statistike droid-ng bo dovolila pošiljanje neosebnih podatkov
         razvijalcem LineageOS-a, da lahko sledijo edinstvenim namestitvam v napravah. Poslani podatki vključujejo edinstven določilnik,
         ki ne ogroža vaše zasebnosti in osebnih podatkov. Podatki so poslani ob vsakem zagonu.\n\nZa primer poslanih podatkov tapnite Predogled podatkov.</string>
     <string name="enable_reporting_title">Omogoči poročanje</string>

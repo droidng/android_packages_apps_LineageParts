@@ -403,10 +403,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Cəmi töhfə verənlər:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Cəmi daxil edilənlər:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Son yeniləmə:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Materium statistikaları</string>
-    <string name="anonymous_statistics_summary">Anonim statistika göndərməni tərcih edərək, Materium-u təkmilləşdirməyimizə kömək edin</string>
+    <string name="anonymous_statistics_title">droid-ng statistikaları</string>
+    <string name="anonymous_statistics_summary">Anonim statistika göndərməni tərcih edərək, droid-ng-u təkmilləşdirməyimizə kömək edin</string>
     <string name="anonymous_statistics_warning_title">Haqqında</string>
-    <string name="anonymous_statistics_warning">Materium Statistikalarına daxil olmaq, cihazlar arasındakı unikal quraşdırmaların
+    <string name="anonymous_statistics_warning">droid-ng Statistikalarına daxil olmaq, cihazlar arasındakı unikal quraşdırmaların
         izlənilməsi üçün LineageOS-un tərtibatçılarına şəxsi olmayan verilənlərin göndərilməsinə icazə verəcək. Göndərilən məlumatlar, gizliliyiniz və ya şəxsi verilənləriniz
         üçün təhlükəli olmayan unikal bir identifikator ehtiva edir. Verilənlər hər önyükləmə vaxtı göndərilir.\n\nGöndərilən verilənlərə nümunə olaraq Verilənlərə Önbaxış-a toxunun.</string>
     <string name="enable_reporting_title">Hesabat göndərməni fəallaşdır</string>

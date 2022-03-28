@@ -381,10 +381,10 @@
     <string name="contributors_cloud_failed_message">Nie można wczytać danych o twórcach</string>
     <string name="contributor_info_menu">Informacje o twórcach</string>
     <string name="contributions_info_menu">Informacje o twórcach</string>
-    <string name="anonymous_statistics_title">Statystyki Materium</string>
-    <string name="anonymous_statistics_summary">Pomóż ulepszyć Materium, pozwalając na wysyłanie anonimowych statystyk</string>
+    <string name="anonymous_statistics_title">Statystyki droid-ng</string>
+    <string name="anonymous_statistics_summary">Pomóż ulepszyć droid-ng, pozwalając na wysyłanie anonimowych statystyk</string>
     <string name="anonymous_statistics_warning_title">O programie</string>
-    <string name="anonymous_statistics_warning">Wyrażenie zgody na udział w Statystykach Materium zezwoli na przesył anonimowych danych do
+    <string name="anonymous_statistics_warning">Wyrażenie zgody na udział w Statystykach droid-ng zezwoli na przesył anonimowych danych do
         developerów LineageOS, aby śledzić ilość unikalnych instalacji na urządzeniach . Informacje zawierają unikalny identyfikator,
        który nie narusza twojej prywatności lub prywatnych danych. Dane są wysyłane przy każdym uruchomieniu.\n\nAby zobaczyć przykład przesyłanych danych naciśnij Podgląd Danych.</string>
     <string name="enable_reporting_title">Włącz raportowanie</string>

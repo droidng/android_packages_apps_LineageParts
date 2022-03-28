@@ -386,10 +386,10 @@
     <string name="contributors_cloud_failed_message">Não foi possível carregar os dados de colaboradores</string>
     <string name="contributor_info_menu">Informação do colaborador</string>
     <string name="contributions_info_menu">Informação de colaborações</string>
-    <string name="anonymous_statistics_title">Estatísticas Materium</string>
-    <string name="anonymous_statistics_summary">Ajude a melhorar o Materium optando por enviar estatísticas anônimas</string>
+    <string name="anonymous_statistics_title">Estatísticas droid-ng</string>
+    <string name="anonymous_statistics_summary">Ajude a melhorar o droid-ng optando por enviar estatísticas anônimas</string>
     <string name="anonymous_statistics_warning_title">Sobre</string>
-    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anônimas ao Materium permitirá que dados não pessoais sejam enviados aos desenvolvedores do Materium para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador único que não compromete sua privacidade ou dados pessoais. Os dados são enviados durante cada inicialização.\n\nPara ver um exemplo dos dados enviados, toque em \'Pré-visualizar dados\'.</string>
+    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anônimas ao droid-ng permitirá que dados não pessoais sejam enviados aos desenvolvedores do droid-ng para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador único que não compromete sua privacidade ou dados pessoais. Os dados são enviados durante cada inicialização.\n\nPara ver um exemplo dos dados enviados, toque em \'Pré-visualizar dados\'.</string>
     <string name="enable_reporting_title">Ativar relatório</string>
     <string name="preview_data_title">Pré-visualizar dados</string>
     <string name="view_stats_title">Ver estatísticas</string>

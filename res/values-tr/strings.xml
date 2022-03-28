@@ -403,10 +403,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Tüm katkı sağlayanlar:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Toplam girdi:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Son güncelleme:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Materium istatistikleri</string>
-    <string name="anonymous_statistics_summary">Anonim istatistik raporlamayı tercih ederek Materium\'u daha iyi hale getirmeye yardımcı olun</string>
+    <string name="anonymous_statistics_title">droid-ng istatistikleri</string>
+    <string name="anonymous_statistics_summary">Anonim istatistik raporlamayı tercih ederek droid-ng\'u daha iyi hale getirmeye yardımcı olun</string>
     <string name="anonymous_statistics_warning_title">Hakkında</string>
-    <string name="anonymous_statistics_warning">Materium İstatistiklerine dahil olmak, cihazlar arasındaki benzersiz yüklemeleri izlemek için
+    <string name="anonymous_statistics_warning">droid-ng İstatistiklerine dahil olmak, cihazlar arasındaki benzersiz yüklemeleri izlemek için
         LineageOS geliştiricilerine kişisel olmayan verilerin gönderilmesine izin verecektir. Gönderilen bilgiler, gizliliğinizi veya
         kişisel verilerinizi tehlikeye atmayan benzersiz bir tanımlayıcıyı içerir. Veriler her önyükleme sırasında gönderilir.\n\nGönderilen verilere bir örnek için Verileri Önizle üzerine dokunun.</string>
     <string name="enable_reporting_title">Raporlamayı etkinleştir</string>

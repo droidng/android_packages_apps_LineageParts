@@ -383,10 +383,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Collaboradores totales:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Unvios totales:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Últimu anovamientu:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Estadístiques de Materium</string>
-    <string name="anonymous_statistics_summary">Ayuda a ameyorar Materium dando laude al unviu anónimu d\'estadístiques</string>
+    <string name="anonymous_statistics_title">Estadístiques de droid-ng</string>
+    <string name="anonymous_statistics_summary">Ayuda a ameyorar droid-ng dando laude al unviu anónimu d\'estadístiques</string>
     <string name="anonymous_statistics_warning_title">Tocante a</string>
-    <string name="anonymous_statistics_warning">Dar laude a les estadístiques de Materium permitirá l\'unviu de datos non personales a
+    <string name="anonymous_statistics_warning">Dar laude a les estadístiques de droid-ng permitirá l\'unviu de datos non personales a
         los desendolcadores pa facer un siguimientu d\'instalaciones úniques nos preseos. La información unviada inclúi un identificador únicu,
         que nun compromete la to privacidá o datos personales. Los datos únviense en cada arranque.\n\nPa un exemplu de los datos que s\'unvien, calca en Previsualizar datos.</string>
     <string name="enable_reporting_title">Habilitar unviu d\'estadístiques</string>

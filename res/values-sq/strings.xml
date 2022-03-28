@@ -407,10 +407,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Kontribuesit total:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Totali i angazhimeve:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Përditësimet e fundit:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">Statistikat e Materium</string>
-    <string name="anonymous_statistics_summary">Ndihmo në përmirësimin e Materium duke lejuar raportimin anonim të statistikave</string>
+    <string name="anonymous_statistics_title">Statistikat e droid-ng</string>
+    <string name="anonymous_statistics_summary">Ndihmo në përmirësimin e droid-ng duke lejuar raportimin anonim të statistikave</string>
     <string name="anonymous_statistics_warning_title">Rreth nesh</string>
-    <string name="anonymous_statistics_warning">Aktivizimi i Statistikave të Materium do të lejojë dërgimin e të dhënave jo-personale tek        zhvilluesit e Materium që të ndjekin instalime unike në pajisje të ndryshme. Informacioni i dërguar përmban një identifikues unik,        që nuk kompromenton privatësinë apo të dhënat e tua personale. Të dhënat dërgohen gjatë rindezjes së pajisjes.\n\nPër të parë një shëmbull të të dhënave që dërgohen, shtypni në Inspekto të Dhënat.</string>
+    <string name="anonymous_statistics_warning">Aktivizimi i Statistikave të droid-ng do të lejojë dërgimin e të dhënave jo-personale tek        zhvilluesit e droid-ng që të ndjekin instalime unike në pajisje të ndryshme. Informacioni i dërguar përmban një identifikues unik,        që nuk kompromenton privatësinë apo të dhënat e tua personale. Të dhënat dërgohen gjatë rindezjes së pajisjes.\n\nPër të parë një shëmbull të të dhënave që dërgohen, shtypni në Inspekto të Dhënat.</string>
     <string name="enable_reporting_title">Aktivizo raportimin</string>
     <string name="preview_data_title">Inspekto të dhënat</string>
     <string name="view_stats_title">Shiko statistikat</string>
