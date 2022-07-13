@@ -414,10 +414,10 @@
     <string name="contributions_info_msg"><![CDATA[<b>Cəmi töhfə verənlər:</b> <xliff:g id="total_contributors">%1$s</xliff:g><br/><br/>
                  <b>Cəmi daxil edilənlər:</b> <xliff:g id="total_commits">%2$s</xliff:g><br/><br/>
                  <b>Son yeniləmə:</b> <xliff:g id="date">%3$s</xliff:g>]]></string>
-    <string name="anonymous_statistics_title">LineageOS statistikaları</string>
-    <string name="anonymous_statistics_summary">Anonim statistika göndərməni tərcih edərək, LineageOS-u təkmilləşdirməyimizə kömək edin</string>
+    <string name="anonymous_statistics_title">droid-ng statistikaları</string>
+    <string name="anonymous_statistics_summary">Anonim statistika göndərməni tərcih edərək, droid-ng-u təkmilləşdirməyimizə kömək edin</string>
     <string name="anonymous_statistics_warning_title">Haqqında</string>
-    <string name="anonymous_statistics_warning">LineageOS Statistikalarına daxil olmaq, cihazlar arasındakı unikal quraşdırmaların
+    <string name="anonymous_statistics_warning">droid-ng Statistikalarına daxil olmaq, cihazlar arasındakı unikal quraşdırmaların
         izlənilməsi üçün LineageOS-un tərtibatçılarına şəxsi olmayan verilənlərin göndərilməsinə icazə verəcək. Göndərilən məlumatlar, gizliliyiniz və ya şəxsi verilənləriniz
         üçün təhlükəli olmayan unikal bir identifikator ehtiva edir. Verilənlər hər önyükləmə vaxtı göndərilir.\n\nGöndərilən verilənlərə nümunə olaraq Verilənlərə Önbaxış-a toxunun.</string>
     <string name="enable_reporting_title">Hesabat göndərməni fəallaşdır</string>
@@ -505,7 +505,7 @@
     <string name="trust_feature_security_patches_value_new">Yenilənib</string>
     <string name="trust_feature_security_patches_value_medium">Bir neçə ay köhnəlib</string>
     <string name="trust_feature_security_patches_value_old">Köhnəlib</string>
-    <string name="trust_feature_security_patches_explain">Təhlükəsizlik yamaqları Google tərəfindən, SoC satıcıları ilə əməkdaşlıq edilərək, təhlükəsizlik məhdudiyyətlərini ötürmək və cihazınıza zərər vurmaq üçün zərərli tətbiqlər tərəfindən istismar edilə biləcək çatışmazlıqları aradan qaldırmaq üçün aylıq olaraq yayımlanır. Google tərəfindən hazırlanan yamaqlar hər ay bütün dəstəklənən cihazlara tətbiq olunur, ancaq xüsusi kodlu yamaqlar yalnız cihazınızın istehsalçısı tərəfindən tətbiq oluna bilər. Cihazınızı etibarlı şəkildə saxlamaq üçün LineageOS quruluşunuzun həmişə yeniləndiyindən və (mümkündürsə) satıcı faylınızın LineageOS tərəfindən məsləhət görülən ən son versiyaya yeniləndiyindən əmin olun.</string>
+    <string name="trust_feature_security_patches_explain">Təhlükəsizlik yamaqları Google tərəfindən, SoC satıcıları ilə əməkdaşlıq edilərək, təhlükəsizlik məhdudiyyətlərini ötürmək və cihazınıza zərər vurmaq üçün zərərli tətbiqlər tərəfindən istismar edilə biləcək çatışmazlıqları aradan qaldırmaq üçün aylıq olaraq yayımlanır. Google tərəfindən hazırlanan yamaqlar hər ay bütün dəstəklənən cihazlara tətbiq olunur, ancaq xüsusi kodlu yamaqlar yalnız cihazınızın istehsalçısı tərəfindən tətbiq oluna bilər. Cihazınızı etibarlı şəkildə saxlamaq üçün droid-ng quruluşunuzun həmişə yeniləndiyindən və (mümkündürsə) satıcı faylınızın droid-ng tərəfindən məsləhət görülən ən son versiyaya yeniləndiyindən əmin olun.</string>
     <string name="trust_feature_encryption">Şifrələmə</string>
     <string name="trust_feature_encryption_value_enabled">Fəaldır</string>
     <string name="trust_feature_encryption_value_nolock">Təhlükəsiz bir kilid ekranı lazımdır</string>
