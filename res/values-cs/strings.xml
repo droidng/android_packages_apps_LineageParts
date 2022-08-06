@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">Nastavení LineageOS</string>
+    <string name="lineageparts_title">Nastavení droid-ng</string>
     <string name="loading">Načítání\u2026</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Zrušit</string>
@@ -81,7 +81,6 @@
     <string name="notification_light_automagic_summary">Automaticky zvolit barvy</string>
     <string name="led_notification_title">Nastavení světelné signalizace</string>
     <string name="led_notification_text">LED světlo povoleno v nastavení</string>
-    <string name="notification_light_no_apps_summary">Chcete-li přidat řízení jednotlivých aplikací, aktivujte „%1$s“ a použijte tlačítko „\u002b“ v panelu nabídky</string>
     <string name="live_display_summary">Optimalizovat obrazovku podle denní doby a okolních podmínek pro lepší čitelnost a snížení namáhání očí</string>
     <string name="live_display_mode">Režim zobrazení</string>
     <string name="live_display_color_temperature_title">Teplota barev</string>

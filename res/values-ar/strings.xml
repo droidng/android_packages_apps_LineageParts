@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">إعدادات LineageOS</string>
+    <string name="lineageparts_title">إعدادات droid-ng</string>
     <string name="loading">تحميل\u2026</string>
     <string name="dlg_ok">موافق</string>
     <string name="cancel">إلغاء</string>
@@ -81,7 +81,6 @@
     <string name="notification_light_automagic_summary">اختيار الألوان تلقائياً</string>
     <string name="led_notification_title">إعدادات الإضاءة</string>
     <string name="led_notification_text">إضاءة الـ LED مفعلة من الإعدادات</string>
-    <string name="notification_light_no_apps_summary">لإضافة تحكم لكل تطبيق، قم بتنشيط \'%1$s\' واضغط على \'\u002b\' في شريط القائمة</string>
     <string name="live_display_summary">تحسين الشاشة استناداً إلى الوقت من اليوم والظروف المحيطة لتحسين قابلية القراءة وتقليل إجهاد العين</string>
     <string name="live_display_mode">نمط العرض</string>
     <string name="live_display_color_temperature_title">درجة حرارة اللون</string>
@@ -404,7 +403,7 @@
     <string name="anonymous_statistics_title">إحصائيات نظام droid-ng</string>
     <string name="anonymous_statistics_summary">ساهم في جعل droid-ng أفضل بإرسال تقارير الإحصائيات</string>
     <string name="anonymous_statistics_warning_title">حول</string>
-    <string name="anonymous_statistics_warning">بالموافقة على المشاركة في إحصائيات LineageOS سيسمح بإرسال البيانات غير الشخصية إلى مطوري droid-ng لتعقب الإصدارات المثبتة على مختلف الأجهزة كلٍ على حدة. وتشمل المعلومات المقدمة معرفًا فريدًا من نوعه، وبالتالي لا تتعرض خصوصيتك أو بياناتك الشخصية للخطر. تُرسل البيانات عند التشغيل في كل مرة.\n\n للإطلاع على مثال للبيانات التي يتم إرسالها، اضغط على معاينة البيانات.</string>
+    <string name="anonymous_statistics_warning">بالموافقة على المشاركة في إحصائيات droid-ng سيسمح بإرسال البيانات غير الشخصية إلى مطوري droid-ng لتعقب الإصدارات المثبتة على مختلف الأجهزة كلٍ على حدة. وتشمل المعلومات المقدمة معرفًا فريدًا من نوعه، وبالتالي لا تتعرض خصوصيتك أو بياناتك الشخصية للخطر. تُرسل البيانات عند التشغيل في كل مرة.\n\n للإطلاع على مثال للبيانات التي يتم إرسالها، اضغط على معاينة البيانات.</string>
     <string name="enable_reporting_title">تفعيل إرسال التقارير</string>
     <string name="preview_data_title">معاينة البيانات</string>
     <string name="view_stats_title">عرض الإحصائيات</string>

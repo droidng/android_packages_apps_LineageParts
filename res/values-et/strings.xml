@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">LineageOS\'i seaded</string>
+    <string name="lineageparts_title">droid-ng\'i seaded</string>
     <string name="loading">Laadimine\u2026</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Tühista</string>
@@ -81,7 +81,6 @@
     <string name="notification_light_automagic_summary">Valib värvid automaatselt</string>
     <string name="led_notification_title">Märgutule seaded</string>
     <string name="led_notification_text">LED-tuli on seadetes lubatud</string>
-    <string name="notification_light_no_apps_summary">Rakendusepõhise juhtimise lisamiseks aktiveeri \"%1$s\" ning vajuta menüüribal \"\u002b\"</string>
     <string name="live_display_summary">Optimeeri oma ekraani vastavalt kellaajale ja keskkonnavalgusele, parandamaks loetavust ja vähendamaks silmade pinget</string>
     <string name="live_display_mode">Ekraani režiim</string>
     <string name="live_display_color_temperature_title">Värvitemperatuur</string>

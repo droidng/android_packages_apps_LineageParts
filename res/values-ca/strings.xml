@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">Configuració de LineageOS</string>
+    <string name="lineageparts_title">Configuració de droid-ng</string>
     <string name="loading">S\'està carregant\u2026</string>
     <string name="dlg_ok">D\'ACORD</string>
     <string name="cancel">Cancel·la</string>
@@ -84,7 +84,6 @@
     <string name="notification_light_automagic_summary">S\'estan triant els colors automàticament</string>
     <string name="led_notification_title">Configuració de llums</string>
     <string name="led_notification_text">Llum LED habilitada per la configuració</string>
-    <string name="notification_light_no_apps_summary">Per afegir control específic per aplicació, activa \'%1$s\' i prem \"\u002b\" a la barra de menú</string>
     <string name="live_display_summary">Optimitza la teva pantalla basant-se en l\'hora del dia i les condicions ambientals per millorar la llegibilitat i reduir la fatiga ocular</string>
     <string name="live_display_mode">Mode de pantalla</string>
     <string name="live_display_color_temperature_title">Temperatura del color</string>
@@ -413,7 +412,7 @@
     <string name="anonymous_statistics_title">Estadístiques de droid-ng</string>
     <string name="anonymous_statistics_summary">Ajuda a fer millor droid-ng optant a transmetre estadístiques anònimes</string>
     <string name="anonymous_statistics_warning_title">Quant a</string>
-    <string name="anonymous_statistics_warning">Optant a les estadístiques de LineageOS permetràs que dades no-personals siguin transmeses als desenvolupadors de droid-ng per rastrejar les instal·lacions individuals a través dels dispositius. La informació transmesa inclou un identificador únic, que no compromet la privacitat o les dades personals. Les dades son transmeses durant cada arrancada.\n\nPer un exemple de les dades transmeses, pica a vista prèvia de Dades.</string>
+    <string name="anonymous_statistics_warning">Optant a les estadístiques de droid-ng permetràs que dades no-personals siguin transmeses als desenvolupadors de droid-ng per rastrejar les instal·lacions individuals a través dels dispositius. La informació transmesa inclou un identificador únic, que no compromet la privacitat o les dades personals. Les dades son transmeses durant cada arrancada.\n\nPer un exemple de les dades transmeses, pica a vista prèvia de Dades.</string>
     <string name="enable_reporting_title">Activa els informes</string>
     <string name="preview_data_title">Vista prèvia de Dades</string>
     <string name="view_stats_title">Veure estadístiques</string>

@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">LineageOS ಅಳವಡಿಕೆಗಳು</string>
+    <string name="lineageparts_title">droid-ng ಅಳವಡಿಕೆಗಳು</string>
     <string name="loading">ಭರಿಸುತ್ತಿದೆ\u2026</string>
     <string name="dlg_ok">ಸರಿ</string>
     <string name="cancel">ರದ್ದು</string>
@@ -80,7 +80,6 @@
     <string name="notification_light_automagic_summary">ಸ್ವಯಂ ಬಣ್ಣಗಳನ್ನು ಆರಿಸುತ್ತಿದೆ</string>
     <string name="led_notification_title">ಬೆಳಕಿನ ಆಯ್ಕೆಗಳು</string>
     <string name="led_notification_text">ಅಳವಡಿಕೆಯಿಂದ LED ಮಿಣುಕು ಸಶಕ್ತ</string>
-    <string name="notification_light_no_apps_summary">ಪ್ರತಿ ಅಪ್ ನಿಯಂತ್ರಣ ಸೇರಿಸಲು, \'%1$s\' ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ಮತ್ತು ಪಟ್ಟಿಯಲ್ಲಿ \'\ u002b\' ಒತ್ತಿರಿ</string>
     <string name="live_display_summary">ದಿನದ ಸಮಯ ಮತ್ತು ಪರಿಸರದ ಪರಿಸ್ಥಿತಿ ಆಧಾರಿಸಿ ನಿಮ್ಮ ಪರದೆಯನ್ನು ಉತ್ತಮವಾಗಿಸಿ ವಾಚನೀಯತೆ ಉತ್ತಮಗೊಳಿಸಿ ಕಣ್ಣಿನ ಆಯಾಸ ಕಡಿಮೆ ಮಾಡು</string>
     <string name="live_display_mode">ಪ್ರದರ್ಶನ ರೀತಿ</string>
     <string name="live_display_color_temperature_title">ಬಣ್ಣದ ತಾಪಮಾನ</string>
@@ -376,7 +375,7 @@
     <string name="anonymous_statistics_title">droid-ng ಅಂಕ್ಯಾಂಶಗಳು</string>
     <string name="anonymous_statistics_summary">ಅಂಕ್ಯಾಂಶಗಳನ್ನು ಅನಾಮಿಕವಾಗಿ ಸಲ್ಲಿಸಲು ಒಪ್ಪುವ ಮೂಲಕ droid-ng ಅನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ನೆರವಾಗಿ</string>
     <string name="anonymous_statistics_warning_title">ಬಗ್ಗೆ</string>
-    <string name="anonymous_statistics_warning">LineageOS ಅಂಕ್ಯಾಂಶಗಳನ್ನು ಅನುಮತಿಸುವುದರಿಂದ ಸಾಧನಗಳಾದ್ಯಂತ ಅನನ್ಯವಾದ ಸ್ಥಾಪನೆಗಳನ್ನು ಜಾಡುಹಿಡಿಯಲು droid-ng ಅಭಿವರ್ಧಕರಿಗೆ  ವೈಯಕ್ತಿಕವಲ್ಲದ ದತ್ತಾಂಶ ಸಲ್ಲಿಸುತ್ತದೆ. ಸಲ್ಲಿಸಿದ ಮಾಹಿತಿಯಲ್ಲಿ ಒಂದು ಅನನ್ಯ ಗುರುತಿದೆ, ಇದು ನಿಮ್ಮ ಗೌಪ್ಯತೆ ಅಥವಾ ವೈಯಕ್ತಿಕ ದತ್ತಾಂಶವನ್ನು ಬಹಿರಂಗಪಡಿಸುವುದಿಲ್ಲ. ಪ್ರತಿ ಬೂಟ್ ಸಮಯದಲ್ಲಿ ದತ್ತಾಂಶವನ್ನು ಸಲ್ಲಿಸಲಾಗುತ್ತದೆ.\n\nಸಲ್ಲಿಸಿದ ದತ್ತಾಂಶದ ಒಂದು ಉದಾಹರಣೆಗಾಗಿ, ದತ್ತಾಂಶ ಮುನ್ನೋಟ ಒತ್ತಿ.</string>
+    <string name="anonymous_statistics_warning">droid-ng ಅಂಕ್ಯಾಂಶಗಳನ್ನು ಅನುಮತಿಸುವುದರಿಂದ ಸಾಧನಗಳಾದ್ಯಂತ ಅನನ್ಯವಾದ ಸ್ಥಾಪನೆಗಳನ್ನು ಜಾಡುಹಿಡಿಯಲು droid-ng ಅಭಿವರ್ಧಕರಿಗೆ  ವೈಯಕ್ತಿಕವಲ್ಲದ ದತ್ತಾಂಶ ಸಲ್ಲಿಸುತ್ತದೆ. ಸಲ್ಲಿಸಿದ ಮಾಹಿತಿಯಲ್ಲಿ ಒಂದು ಅನನ್ಯ ಗುರುತಿದೆ, ಇದು ನಿಮ್ಮ ಗೌಪ್ಯತೆ ಅಥವಾ ವೈಯಕ್ತಿಕ ದತ್ತಾಂಶವನ್ನು ಬಹಿರಂಗಪಡಿಸುವುದಿಲ್ಲ. ಪ್ರತಿ ಬೂಟ್ ಸಮಯದಲ್ಲಿ ದತ್ತಾಂಶವನ್ನು ಸಲ್ಲಿಸಲಾಗುತ್ತದೆ.\n\nಸಲ್ಲಿಸಿದ ದತ್ತಾಂಶದ ಒಂದು ಉದಾಹರಣೆಗಾಗಿ, ದತ್ತಾಂಶ ಮುನ್ನೋಟ ಒತ್ತಿ.</string>
     <string name="enable_reporting_title">ವರದಿಸುವಿಕೆ ಸಶಕ್ತಿಸು</string>
     <string name="preview_data_title">ದತ್ತಾಂಶ ಮುನ್ನೋಟ</string>
     <string name="view_stats_title">ಅಂಕ್ಯಾಂಶಗಳನ್ನು ವೀಕ್ಷಿಸು</string>

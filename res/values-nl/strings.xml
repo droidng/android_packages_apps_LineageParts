@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">LineageOS-instellingen</string>
+    <string name="lineageparts_title">droid-ng-instellingen</string>
     <string name="loading">Aan het laden\u2026</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Annuleer</string>
@@ -84,7 +84,6 @@
     <string name="notification_light_automagic_summary">Kleuren worden automatisch gekozen</string>
     <string name="led_notification_title">Verlichtingsinstellingen</string>
     <string name="led_notification_text">LED-verlichting ingeschakeld door instellingen</string>
-    <string name="notification_light_no_apps_summary">Om controle per app toe te voegen, activeer %1$s en tik \'\u002b\' op de menubalk</string>
     <string name="live_display_summary">Uw scherm optimaliseren aan de hand van tijdstip op de dag en lichtomstandigheden om de leesbaarheid te verbeteren en oogvermoeidheid te verminderen</string>
     <string name="live_display_mode">Weergavemodus</string>
     <string name="live_display_color_temperature_title">Kleurtemperatuur</string>

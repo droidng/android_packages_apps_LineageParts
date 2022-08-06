@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">Ajustes de LineageOS</string>
+    <string name="lineageparts_title">Ajustes de droid-ng</string>
     <string name="loading">Cargando\u2026</string>
     <string name="dlg_ok">OK</string>
     <string name="cancel">Cancelar</string>
@@ -80,7 +80,6 @@
     <string name="notification_light_automagic_summary">Eligiendo colores automáticamente</string>
     <string name="led_notification_title">Ajustes de luz</string>
     <string name="led_notification_text">Luz LED habilitada por la configuración</string>
-    <string name="notification_light_no_apps_summary">Para añadir control por aplicación, activa «%1$s» y pulsa «\u002b» en la barra de menús</string>
     <string name="live_display_summary">Optimizar su pantalla basada en la hora del día y las condiciones ambientales para mejorar la legibilidad y reducir la fatiga visual</string>
     <string name="live_display_mode">Modo de visualización</string>
     <string name="live_display_color_temperature_title">Temperatura de color</string>
@@ -385,7 +384,7 @@
     <string name="anonymous_statistics_title">Estadísticas droid-ng</string>
     <string name="anonymous_statistics_summary">Ayuda a mejorar droid-ng mediante el envío anónimo de estadísticas</string>
     <string name="anonymous_statistics_warning_title">Acerca de</string>
-    <string name="anonymous_statistics_warning">Al permitir la recopilación y el envío de estadísticas de LineageOS, autorizas el envío de información de carácter no personal a los desarrolladores de droid-ng para hacer un seguimiento de las instalaciones que realices en los dispositivos. La información enviada incluye un identificador único que no compromete tu privacidad ni tu información personal. Esta información es enviada durante el arranque.\n\nPara ver un ejemplo de la información enviada, pulsa en Previsualizar datos.</string>
+    <string name="anonymous_statistics_warning">Al permitir la recopilación y el envío de estadísticas de droid-ng, autorizas el envío de información de carácter no personal a los desarrolladores de droid-ng para hacer un seguimiento de las instalaciones que realices en los dispositivos. La información enviada incluye un identificador único que no compromete tu privacidad ni tu información personal. Esta información es enviada durante el arranque.\n\nPara ver un ejemplo de la información enviada, pulsa en Previsualizar datos.</string>
     <string name="enable_reporting_title">Activar envío de estadísticas</string>
     <string name="preview_data_title">Previsualizar datos</string>
     <string name="view_stats_title">Ver estadísticas</string>

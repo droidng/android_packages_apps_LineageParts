@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">การตั้งค่า LineageOS</string>
+    <string name="lineageparts_title">การตั้งค่า droid-ng</string>
     <string name="loading">กำลังโหลด\u2026</string>
     <string name="dlg_ok">ตกลง</string>
     <string name="cancel">ยกเลิก</string>
@@ -81,7 +81,6 @@
     <string name="notification_light_automagic_summary">การเลือกสีอัตโนมัติ</string>
     <string name="led_notification_title">ตั้งค่าไฟแจ้งเตือน</string>
     <string name="led_notification_text">เปิดใช้งาน LED จากการตั้งค่า</string>
-    <string name="notification_light_no_apps_summary">เพื่อเพิ่มการควบคุมแอป เปิดใช้ \'%1$s\' และกด \'\u002b\' บนแถบเมนู</string>
     <string name="live_display_summary">ปรับหน้าความสว่างหน้าจอตามเวลาและแสงโดยรอบเพื่อทำให้อ่านได้ง่ายขึ้นและลดอาการปวดตา</string>
     <string name="live_display_mode">โหมดการแสดงผล</string>
     <string name="live_display_color_temperature_title">อุณหภูมิสี</string>
@@ -393,7 +392,7 @@
     <string name="anonymous_statistics_title">สถิติ droid-ng</string>
     <string name="anonymous_statistics_summary">ช่วยทำให้ droid-ng ดีขึ้นโดยการส่งรายงานสถิติแบบไม่ระบุตัวตน</string>
     <string name="anonymous_statistics_warning_title">เกี่ยวกับ</string>
-    <string name="anonymous_statistics_warning">การส่งสถิติแบบไม่ระบุตัวตนไปยัง LineageOS จะอนุญาตให้ส่งข้อมูลที่ไม่ใช่ข้อมูลส่วนตัวไปยังนักพัฒนาของ droid-ng เพื่อติดตามการติดตั้งบนอุปกรณ์ทั้งหมด ข้อมูลที่ถูกส่งรวมไปถึงตัวระบุลักษณะเฉพาะ\n\nซึ่งไม่ส่งผลกระทบต่อความเป็นส่วนตัวและข้อมูลส่วนบุคคลของคุณ โดยจะส่งข้อมูลทุกครั้งที่เริ่มระบบ\n\n แตะ \"แสดงตัวอย่างข้อมูล\" เพื่อดูตัวอย่างข้อมูลที่ถูกส่ง</string>
+    <string name="anonymous_statistics_warning">การส่งสถิติแบบไม่ระบุตัวตนไปยัง droid-ng จะอนุญาตให้ส่งข้อมูลที่ไม่ใช่ข้อมูลส่วนตัวไปยังนักพัฒนาของ droid-ng เพื่อติดตามการติดตั้งบนอุปกรณ์ทั้งหมด ข้อมูลที่ถูกส่งรวมไปถึงตัวระบุลักษณะเฉพาะ\n\nซึ่งไม่ส่งผลกระทบต่อความเป็นส่วนตัวและข้อมูลส่วนบุคคลของคุณ โดยจะส่งข้อมูลทุกครั้งที่เริ่มระบบ\n\n แตะ \"แสดงตัวอย่างข้อมูล\" เพื่อดูตัวอย่างข้อมูลที่ถูกส่ง</string>
     <string name="enable_reporting_title">เปิดใช้งานการรายงาน</string>
     <string name="preview_data_title">แสดงตัวอย่างข้อมูล</string>
     <string name="view_stats_title">ดูสถิติ</string>

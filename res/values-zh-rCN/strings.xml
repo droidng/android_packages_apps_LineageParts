@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">LineageOS 设置</string>
+    <string name="lineageparts_title">droid-ng 设置</string>
     <string name="loading">正在加载\u2026</string>
     <string name="dlg_ok">确定</string>
     <string name="cancel">取消</string>
@@ -84,7 +84,7 @@
     <string name="notification_light_automagic_summary">自动选择颜色</string>
     <string name="led_notification_title">指示灯设置</string>
     <string name="led_notification_text">LED 灯被“设置”启用</string>
-    <string name="notification_light_no_apps_summary">若要添加单个应用控制，请激活“%1$s”并按下菜单栏上的“\u002b”</string>
+    <string name="notification_light_add_apps_empty_summary">要添加对每个应用的控制，请先激活 \'%1$s\'，然后按 \'添加\'</string>
     <string name="live_display_summary">基于当前时间和环境条件来优化您的屏幕以改善可读性和减少视疲劳</string>
     <string name="live_display_mode">显示模式</string>
     <string name="live_display_color_temperature_title">色温</string>
@@ -417,7 +417,7 @@
     <string name="anonymous_statistics_title">droid-ng 统计</string>
     <string name="anonymous_statistics_summary">开启匿名统计报告以便帮助 droid-ng 未来向更好的方向发展</string>
     <string name="anonymous_statistics_warning_title">关于</string>
-    <string name="anonymous_statistics_warning">开启 LineageOS 统计将允许非个人数据被提交到 droid-ng 的开发者以便记录各种设备上的唯一安装。提交的信息包含一个唯一的标识符，而不会涉及您的隐私与个人数据。该数据将在每次启动时被提交。\n\n如您想看一个作为被提交数据的实例，请点击预览数据。</string>
+    <string name="anonymous_statistics_warning">开启 droid-ng 统计将允许非个人数据被提交到 droid-ng 的开发者以便记录各种设备上的唯一安装。提交的信息包含一个唯一的标识符，而不会涉及您的隐私与个人数据。该数据将在每次启动时被提交。\n\n如您想看一个作为被提交数据的实例，请点击预览数据。</string>
     <string name="enable_reporting_title">开启报告</string>
     <string name="preview_data_title">预览数据</string>
     <string name="view_stats_title">查看统计</string>

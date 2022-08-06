@@ -16,7 +16,7 @@
 	limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="lineageparts_title">Настройки LineageOS</string>
+    <string name="lineageparts_title">Настройки droid-ng</string>
     <string name="loading">Зареждане\u2026</string>
     <string name="dlg_ok">ОK</string>
     <string name="cancel">Отмени</string>
@@ -84,7 +84,6 @@
     <string name="notification_light_automagic_summary">Автоматичен избор на цветове</string>
     <string name="led_notification_title">Настройки на светлината</string>
     <string name="led_notification_text">LED светлини, разрешени в настройките</string>
-    <string name="notification_light_no_apps_summary">За да добавите отделен контрол за приложение, активирайте \'%1$s\' и натиснете \'\u002b\' в лентата на менюто</string>
     <string name="live_display_summary">Оптимизира настройките на дисплея, въз основа на времето от деня и условията на околната среда за да се подобри четливостта и да намали умората на очите</string>
     <string name="live_display_mode">Режим на екрана</string>
     <string name="live_display_color_temperature_title">Температура на цвета</string>
@@ -411,7 +410,7 @@
     <string name="anonymous_statistics_title">Статистики</string>
     <string name="anonymous_statistics_summary">Помогнете да направим droid-ng по-добър, като разрешите да събира анонимни статистически данни</string>
     <string name="anonymous_statistics_warning_title">За проложението</string>
-    <string name="anonymous_statistics_warning">Ще позволи на LineageOS Statistics да изпраща не лична информация  на разработчиците от droid-ng, за проследяване на инсталациите в устройството. Предоставената информация включва уникален идентификатор, който не застрашава вашата поверителност или лични данни. Данните се подават по време на всяко зареждане.\n\nПример за данните, които са подадени.</string>
+    <string name="anonymous_statistics_warning">Ще позволи на droid-ng Statistics да изпраща не лична информация  на разработчиците от droid-ng, за проследяване на инсталациите в устройството. Предоставената информация включва уникален идентификатор, който не застрашава вашата поверителност или лични данни. Данните се подават по време на всяко зареждане.\n\nПример за данните, които са подадени.</string>
     <string name="enable_reporting_title">Разреши отчитане</string>
     <string name="preview_data_title">Визуализиране на данните</string>
     <string name="view_stats_title">Преглед на статистиките</string>
