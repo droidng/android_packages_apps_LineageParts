@@ -36,6 +36,7 @@ import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -139,7 +140,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
                 LayoutInflater li = LayoutInflater.from(getContext());
                 convertView = li.inflate(R.layout.contributors_search_result, null);
                 ContributorsViewHolder viewHolder = new ContributorsViewHolder();
-                viewHolder.mLabel = (TextView) convertView.findViewById(R.id.contributor_name);
+                viewHolder.mLabel = convertView.findViewById(R.id.contributor_name);
                 convertView.setTag(viewHolder);
             }
 
@@ -190,7 +191,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
 
         @Override
         protected void onPostExecute(Boolean result) {
-            if (result == true) {
+            if (result) {
                 mImageView.setImageBitmap(mViewInfo.mBitmap);
                 mViewController.update();
                 if (mNotify) {
@@ -255,7 +256,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         activity.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
                 | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
-        mHandler = new Handler();
+        mHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override
@@ -313,21 +314,18 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
 
         mLoadingView= v.findViewById(R.id.contributors_cloud_loading);
         mFailedView= v.findViewById(R.id.contributors_cloud_failed);
-        mImageView = (ImageView) v.findViewById(R.id.contributors_cloud_image);
+        mImageView = v.findViewById(R.id.contributors_cloud_image);
         mViewController = new ContributorsCloudViewController(mImageView);
         mViewController.setMaximumScale(20f);
         mViewController.setMediumScale(7f);
 
-        mSearchResults = (ListView) v.findViewById(R.id.contributors_cloud_search_results);
+        mSearchResults = v.findViewById(R.id.contributors_cloud_search_results);
         mSearchAdapter = new ContributorsAdapter(getActivity());
         mSearchResults.setAdapter(mSearchAdapter);
-        mSearchResults.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ContributorsDataHolder contributor =
-                        (ContributorsDataHolder) parent.getItemAtPosition(position);
-                onContributorSelected(contributor);
-            }
+        mSearchResults.setOnItemClickListener((parent, view, position, id) -> {
+            ContributorsDataHolder contributor =
+                    (ContributorsDataHolder) parent.getItemAtPosition(position);
+            onContributorSelected(contributor);
         });
 
         // Load the data from the database and fill the image
@@ -345,7 +343,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         if (args != null) {
             String c = args.getString(PartsActivity.EXTRA_FRAGMENT_ARG_KEY);
             if (c != null && c.startsWith(KEY_PREFIX)) {
-                onContributorSelected(Integer.valueOf(c.substring(KEY_PREFIX.length())));
+                onContributorSelected(Integer.parseInt(c.substring(KEY_PREFIX.length())));
                 args.remove(PartsActivity.EXTRA_FRAGMENT_ARG_KEY);
             }
         }
@@ -423,12 +421,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         if (focusX != -1 && focusY != -1) {
             mViewController.setZoomTransitionDuration(2500);
             mViewController.setScale(10, focusX, focusY, true);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mViewController.setZoomTransitionDuration(-1);
-                }
-            }, 2500);
+            mHandler.postDelayed(() -> mViewController.setZoomTransitionDuration(-1), 2500);
         }
     }
 
@@ -508,8 +501,9 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
             TypedValue colorAccent = new TypedValue();
             context.getTheme().resolveAttribute(com.android.internal.R.attr.colorAccent,
                     colorAccent, true);
-            int colorForeground = res.getColor(colorAccent.resourceId);
-            int colorSelected = res.getColor(R.color.contributors_cloud_selected_color);
+            int colorForeground = res.getColor(colorAccent.resourceId, context.getTheme());
+            int colorSelected = res.getColor(R.color.contributors_cloud_selected_color,
+                    context.getTheme());
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
 
             // Create a bitmap large enough to hold the cloud (use large bitmap when available)
@@ -548,21 +542,18 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
                     // Horizontal
                     canvas.drawText(name, x, y, paint);
                 } else {
+                    canvas.save();
                     if (r == -1) {
                         // Vertical (-90 rotation)
-                        canvas.save();
                         canvas.translate(h, w - h);
                         canvas.rotate(-90, x, y);
-                        canvas.drawText(name, x, y, paint);
-                        canvas.restore();
                     } else {
                         // Vertical (+90 rotation)
-                        canvas.save();
                         canvas.translate(h/2, -h);
                         canvas.rotate(90, x, y);
-                        canvas.drawText(name, x, y, paint);
-                        canvas.restore();
                     }
+                    canvas.drawText(name, x, y, paint);
+                    canvas.restore();
                 }
 
                 // Calculate focus
@@ -573,8 +564,8 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
                     int cy = ih / 2;
                     int cbx = bsize / 2;
                     int cby = bsize / 2;
-                    float cw = 0f;
-                    float ch = 0f;
+                    float cw;
+                    float ch;
                     if (r == 0) {
                         cw = translate(w, bsize, Math.min(iw, ih)) / 2;
                         ch = translate(h, bsize, Math.min(iw, ih)) / 2;
@@ -705,7 +696,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.contributor_info_menu);
         builder.setMessage(Html.fromHtml(getString(R.string.contributor_info_msg,
-                name, nick, commits)));
+                name, nick, commits), Html.FROM_HTML_MODE_LEGACY));
         builder.setPositiveButton(android.R.string.ok, null);
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -725,7 +716,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.contributions_info_menu);
         builder.setMessage(Html.fromHtml(getString(R.string.contributions_info_msg,
-                totalContributors, totalCommits, lastUpdate)));
+                totalContributors, totalCommits, lastUpdate), Html.FROM_HTML_MODE_LEGACY));
         builder.setPositiveButton(android.R.string.ok, null);
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -740,11 +731,10 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
         }
 
         // Total contributors
-        String[] args = new String[]{String.valueOf(query.replaceAll("\\|", ""))};
-        Cursor c = db.rawQuery(
-                "select id, name || case when username is null then '' else ' <'||username||'>' end contributor " +
-                "from metadata where lower(filter) like lower('%' || ? || '%') and id > 0 " +
-                "order by commits desc", args);
+        String[] args = new String[]{query.replaceAll("\\|", "")};
+        Cursor c = db.rawQuery("select id, name || case when username is null then '' " +
+                "else ' <'||username||'>' end contributor from metadata where lower(filter) like " +
+                "lower('%' || ? || '%') and id > 0 order by commits desc", args);
         if (c == null) {
             // We don't have a valid cursor reference
             return new ArrayList<>();
@@ -786,7 +776,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
     public static void extractContributorsCloudDatabase(Context context) {
         final int BUFFER = 1024;
         InputStream is = null;
-        OutputStream os = null;
+        OutputStream os;
         File databasePath = context.getDatabasePath(DB_NAME);
         try {
             databasePath.getParentFile().mkdir();
@@ -818,7 +808,7 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
 
                     // Index the top 100 contributors, for fun :)
                     File dbPath = context.getDatabasePath(DB_NAME);
-                    SQLiteDatabase db = null;
+                    SQLiteDatabase db;
                     try {
                         db = SQLiteDatabase.openDatabase(dbPath.getAbsolutePath(),
                                 null, SQLiteDatabase.OPEN_READONLY);
@@ -828,26 +818,24 @@ public class ContributorsCloudFragment extends Fragment implements SearchView.On
                         }
                     } catch (Exception e) {
                         Log.e(TAG, e.getMessage(), e);
-                        if (db != null && db.isOpen()) {
-                            db.close();
-                        }
                         return null;
                     }
 
                     List<SearchIndexableRaw> result = new ArrayList<>();
-                    Cursor c = db.rawQuery(
-                            "select id, username from metadata order by commits desc limit 100;", null);
-                    while (c.moveToNext()) {
-                        SearchIndexableRaw raw = new SearchIndexableRaw(context);
-                        raw.key = KEY_PREFIX + c.getString(0);
-                        raw.rank = 10;
-                        raw.title = c.getString(1);
-                        result.add(raw);
+                    try (Cursor c = db.rawQuery(
+                            "select id, username from metadata order by commits desc limit 100;",
+                            null)) {
+                        while (c.moveToNext()) {
+                            SearchIndexableRaw raw = new SearchIndexableRaw(context);
+                            raw.key = KEY_PREFIX + c.getString(0);
+                            raw.rank = 10;
+                            raw.title = c.getString(1);
+                            result.add(raw);
+                        }
                     }
-                    c.close();
                     db.close();
 
                     return result;
                 }
-            };
+    };
 }

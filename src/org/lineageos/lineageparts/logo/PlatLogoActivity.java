@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
- * Copyright (C) 2017-2018 The LineageOS Project
+ * Copyright (C) 2017-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,8 @@ import android.graphics.ColorFilter;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 import android.view.View;
@@ -58,7 +54,7 @@ public class PlatLogoActivity extends Activity {
         0,     0,     0,    1,      0  // alpha
     };
     private static final int BASE_SCALE = 50; // magic number scale multiple. Looks good on all DPI
-    private static final long LONG_PRESS_TIMEOUT= new Long(ViewConfiguration.getLongPressTimeout());
+    private static final long LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
 
     private class PBackground extends Drawable {
         private float mRadius, mX, mY, mDP;
@@ -67,12 +63,12 @@ public class PlatLogoActivity extends Activity {
         private float mOffset;
 
         // LineageOS logo drawable
-        private Drawable mLogo;
+        private final Drawable mLogo;
 
         public PBackground(Context context) {
             randomizePalette();
             // LineageOS logo
-            mLogo = context.getResources().getDrawable(R.drawable.logo_lineage);
+            mLogo = context.getResources().getDrawable(R.drawable.logo_lineage, context.getTheme());
             mLogo.setColorFilter(new ColorMatrixColorFilter(WHITE)); // apply color filter
             mLogo.setBounds(0, 0, 360, 180); // Aspect ratio 2:1
         }
@@ -206,8 +202,8 @@ public class PlatLogoActivity extends Activity {
             // Draw LineageOS Logo drawable
             canvas.save();
             {
-                canvas.translate((-360 / 2) * mRadius / BASE_SCALE,
-                                (-180 / 2) * mRadius / BASE_SCALE);
+                canvas.translate((-360 / 2f) * mRadius / BASE_SCALE,
+                                (-180 / 2f) * mRadius / BASE_SCALE);
                 canvas.scale(mRadius / BASE_SCALE, mRadius / BASE_SCALE);
                 mLogo.draw(canvas);
             }
@@ -243,23 +239,20 @@ public class PlatLogoActivity extends Activity {
                 mTapCount = 0;
 
                 // Launch the Easter Egg
-                mLayout.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            startActivity(new Intent("org.lineageos.lineageparts.EASTER_EGG")
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                                            | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                            | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-                                    .addCategory("com.android.internal.category.PLATLOGO"));
-                        } catch (ActivityNotFoundException ex) {
-                            Log.e("PlatLogoActivity", "No more eggs.");
-                        }
+                mLayout.post(() -> {
+                    try {
+                        startActivity(new Intent("org.lineageos.lineageparts.EASTER_EGG")
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                        | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+                                .addCategory("com.android.internal.category.PLATLOGO"));
+                    } catch (ActivityNotFoundException ex) {
+                        Log.e("PlatLogoActivity", "No more eggs.");
                     }
                 });
             }
         }
-    };
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -277,7 +270,7 @@ public class PlatLogoActivity extends Activity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // make sure the user doesnt launch stage 2 while zooming
+                // make sure the user doesn't launch stage 2 while zooming
                 if (event.getPointerCount() > 1 && mTouchHeld > 0) {
                     mTouchHeld = 0;
                 }
@@ -315,14 +308,10 @@ public class PlatLogoActivity extends Activity {
         mBG.randomizePalette();
 
         mAnim = new TimeAnimator();
-        mAnim.setTimeListener(
-            new TimeAnimator.TimeListener() {
-                @Override
-                public void onTimeUpdate(TimeAnimator animation, long totalTime, long deltaTime) {
-                    mBG.setOffset((float) totalTime / 60000f);
-                    mBG.invalidateSelf();
-                }
-            });
+        mAnim.setTimeListener((animation, totalTime, deltaTime) -> {
+            mBG.setOffset((float) totalTime / 60000f);
+            mBG.invalidateSelf();
+        });
 
         mAnim.start();
     }

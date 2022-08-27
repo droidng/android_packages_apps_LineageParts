@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
- *               2017-2021 The LineageOS Project
+ *               2017-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,7 +111,7 @@ public class ProfilesSettings extends SettingsPreferenceFragment
         View v = LayoutInflater.from(getActivity())
                 .inflate(R.layout.empty_textview, (ViewGroup) view, true);
 
-        TextView emptyTextView = (TextView) v.findViewById(R.id.empty);
+        TextView emptyTextView = v.findViewById(R.id.empty);
         setEmptyView(emptyTextView);
     }
 
@@ -275,19 +275,13 @@ public class ProfilesSettings extends SettingsPreferenceFragment
         }
     }
 
-    public static final SummaryProvider SUMMARY_PROVIDER = new SummaryProvider() {
-        @Override
-        public String getSummary(Context context, String key) {
-            ProfileManager pm = ProfileManager.getInstance(context);
-            if (!pm.isProfilesEnabled()) {
-                return context.getString(R.string.profile_settings_summary_off);
-            }
-
-            Profile p = pm.getActiveProfile();
-            if (p != null) {
-                return p.getName();
-            }
-            return null;
+    public static final SummaryProvider SUMMARY_PROVIDER = (context, key) -> {
+        ProfileManager pm = ProfileManager.getInstance(context);
+        if (!pm.isProfilesEnabled()) {
+            return context.getString(R.string.profile_settings_summary_off);
         }
+
+        Profile p = pm.getActiveProfile();
+        return p != null ? p.getName() : null;
     };
 }

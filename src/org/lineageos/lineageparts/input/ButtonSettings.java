@@ -21,18 +21,14 @@ import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.om.IOverlayManager;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -63,6 +59,8 @@ import org.lineageos.internal.util.ScreenType;
 
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -140,10 +138,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
     private ListPreference mAppSwitchLongPressAction;
     private SwitchPreference mCameraWakeScreen;
     private SwitchPreference mCameraSleepOnRelease;
-    private SwitchPreference mCameraLaunch;
     private ListPreference mVolumeKeyCursorControl;
-    private SwitchPreference mVolumeWakeScreen;
-    private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mVolumePanelOnLeft;
     private SwitchPreference mDisableNavigationKeys;
@@ -155,7 +150,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
     private ListPreference mEdgeLongSwipeAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
-    private SwitchPreference mTorchLongPressPowerGesture;
     private ListPreference mTorchLongPressPowerTimeout;
     private SwitchPreference mSwapCapacitiveKeys;
     private SwitchPreference mNavBarInverse;
@@ -196,7 +190,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
         final boolean showCameraWake = DeviceUtils.canWakeUsingCameraKey(getActivity());
         final boolean showVolumeWake = DeviceUtils.canWakeUsingVolumeKeys(getActivity());
 
-        boolean hasAnyBindableKey = false;
         final PreferenceCategory powerCategory = prefScreen.findPreference(CATEGORY_POWER);
         final PreferenceCategory homeCategory = prefScreen.findPreference(CATEGORY_HOME);
         final PreferenceCategory backCategory = prefScreen.findPreference(CATEGORY_BACK);
@@ -211,7 +204,8 @@ public class ButtonSettings extends SettingsPreferenceFragment
         mPowerEndCall = findPreference(KEY_POWER_END_CALL);
 
         // Long press power while display is off to activate torchlight
-        mTorchLongPressPowerGesture = findPreference(KEY_TORCH_LONG_PRESS_POWER_GESTURE);
+        SwitchPreference torchLongPressPowerGesture =
+                findPreference(KEY_TORCH_LONG_PRESS_POWER_GESTURE);
         final int torchLongPressPowerTimeout = LineageSettings.System.getInt(resolver,
                 LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
         mTorchLongPressPowerTimeout = initList(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT,
@@ -220,7 +214,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
         // Home button answers calls.
         mHomeAnswerCall = findPreference(KEY_HOME_ANSWER_CALL);
 
-        mHandler = new Handler();
+        mHandler = new Handler(Looper.getMainLooper());
 
         // Force Navigation bar related options
         mDisableNavigationKeys = findPreference(KEY_DISABLE_NAV_KEYS);
@@ -290,7 +284,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 mPowerEndCall = null;
             }
             if (!DeviceUtils.deviceSupportsFlashLight(getActivity())) {
-                powerCategory.removePreference(mTorchLongPressPowerGesture);
+                powerCategory.removePreference(torchLongPressPowerGesture);
                 powerCategory.removePreference(mTorchLongPressPowerTimeout);
             }
         }
@@ -315,7 +309,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 mHomeDoubleTapAction.setEnabled(false);
             }
 
-            hasAnyBindableKey = true;
         }
         if (!hasHomeKey || homeCategory.getPreferenceCount() == 0) {
             prefScreen.removePreference(homeCategory);
@@ -331,7 +324,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 mBackLongPressAction.setEnabled(false);
             }
 
-            hasAnyBindableKey = true;
         }
         if (!hasBackKey || backCategory.getPreferenceCount() == 0) {
             prefScreen.removePreference(backCategory);
@@ -351,7 +343,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
                         hasAssistKey ? Action.NOTHING : Action.APP_SWITCH);
             mMenuLongPressAction = initList(KEY_MENU_LONG_PRESS, longPressAction);
 
-            hasAnyBindableKey = true;
         }
         if (!hasMenuKey || menuCategory.getPreferenceCount() == 0) {
             prefScreen.removePreference(menuCategory);
@@ -370,7 +361,6 @@ public class ButtonSettings extends SettingsPreferenceFragment
                     LineageSettings.System.KEY_ASSIST_LONG_PRESS_ACTION, Action.VOICE_SEARCH);
             mAssistLongPressAction = initList(KEY_ASSIST_LONG_PRESS, longPressAction);
 
-            hasAnyBindableKey = true;
         }
         if (!hasAssistKey || assistCategory.getPreferenceCount() == 0) {
             prefScreen.removePreference(assistCategory);
@@ -385,9 +375,9 @@ public class ButtonSettings extends SettingsPreferenceFragment
                     LineageSettings.System.KEY_APP_SWITCH_ACTION, Action.APP_SWITCH);
             mAppSwitchPressAction = initList(KEY_APP_SWITCH_PRESS, pressAction);
 
-            mAppSwitchLongPressAction = initList(KEY_APP_SWITCH_LONG_PRESS, appSwitchLongPressAction);
+            mAppSwitchLongPressAction = initList(KEY_APP_SWITCH_LONG_PRESS,
+                    appSwitchLongPressAction);
 
-            hasAnyBindableKey = true;
         }
         if (!hasAppSwitchKey || appSwitchCategory.getPreferenceCount() == 0) {
             prefScreen.removePreference(appSwitchCategory);
@@ -396,13 +386,13 @@ public class ButtonSettings extends SettingsPreferenceFragment
         if (hasCameraKey) {
             mCameraWakeScreen = findPreference(KEY_CAMERA_WAKE_SCREEN);
             mCameraSleepOnRelease = findPreference(KEY_CAMERA_SLEEP_ON_RELEASE);
-            mCameraLaunch = findPreference(KEY_CAMERA_LAUNCH);
 
             if (!showCameraWake) {
                 prefScreen.removePreference(mCameraWakeScreen);
             }
             // Only show 'Camera sleep on release' if the device has a focus key
-            if (res.getBoolean(org.lineageos.platform.internal.R.bool.config_singleStageCameraKey)) {
+            if (res.getBoolean(
+                    org.lineageos.platform.internal.R.bool.config_singleStageCameraKey)) {
                 prefScreen.removePreference(mCameraSleepOnRelease);
             }
         }
@@ -424,16 +414,15 @@ public class ButtonSettings extends SettingsPreferenceFragment
             mVolumeKeyCursorControl = initList(KEY_VOLUME_KEY_CURSOR_CONTROL,
                     cursorControlAction);
 
-            int swapVolumeKeys = LineageSettings.System.getInt(getContentResolver(),
+            int swapVolumeKeys = LineageSettings.System.getInt(resolver,
                     LineageSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             if (mSwapVolumeButtons != null) {
                 mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
             }
 
-            final boolean volumePanelOnLeft = LineageSettings.Secure.getIntForUser(
-                    getContentResolver(), LineageSettings.Secure.VOLUME_PANEL_ON_LEFT, 0,
-                    UserHandle.USER_CURRENT) != 0;
+            final boolean volumePanelOnLeft = LineageSettings.Secure.getIntForUser(resolver,
+                    LineageSettings.Secure.VOLUME_PANEL_ON_LEFT, 0, UserHandle.USER_CURRENT) != 0;
             mVolumePanelOnLeft = prefScreen.findPreference(KEY_VOLUME_PANEL_ON_LEFT);
             if (mVolumePanelOnLeft != null) {
                 mVolumePanelOnLeft.setChecked(volumePanelOnLeft);
@@ -464,13 +453,13 @@ public class ButtonSettings extends SettingsPreferenceFragment
             }
         }
 
-        mVolumeWakeScreen = findPreference(KEY_VOLUME_WAKE_SCREEN);
-        mVolumeMusicControls = findPreference(KEY_VOLUME_MUSIC_CONTROLS);
+        SwitchPreference volumeWakeScreen = findPreference(KEY_VOLUME_WAKE_SCREEN);
+        SwitchPreference volumeMusicControls = findPreference(KEY_VOLUME_MUSIC_CONTROLS);
 
-        if (mVolumeWakeScreen != null) {
-            if (mVolumeMusicControls != null) {
-                mVolumeMusicControls.setDependency(KEY_VOLUME_WAKE_SCREEN);
-                mVolumeWakeScreen.setDisableDependentsState(true);
+        if (volumeWakeScreen != null) {
+            if (volumeMusicControls != null) {
+                volumeMusicControls.setDependency(KEY_VOLUME_WAKE_SCREEN);
+                volumeWakeScreen.setDisableDependentsState(true);
             }
         }
 
@@ -490,70 +479,83 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 mNavigationPreferencesCat.removePreference(mEnableTaskbar);
             } else {
                 mEnableTaskbar.setOnPreferenceChangeListener(this);
-                mEnableTaskbar.setChecked(LineageSettings.System.getInt(getContentResolver(),
+                mEnableTaskbar.setChecked(LineageSettings.System.getInt(resolver,
                         LineageSettings.System.ENABLE_TASKBAR,
                         isTablet(getContext()) ? 1 : 0) == 1);
                 toggleTaskBarDependencies(mEnableTaskbar.isChecked());
             }
         }
 
-        // Override key actions on Go devices in order to hide any unsupported features
-        if (ActivityManager.isLowRamDeviceStatic()) {
-            String[] actionEntriesGo = res.getStringArray(R.array.hardware_keys_action_entries_go);
-            String[] actionValuesGo = res.getStringArray(R.array.hardware_keys_action_values_go);
+        List<Integer> unsupportedValues = new ArrayList<>();
+        List<String> entries = new ArrayList<>(
+                Arrays.asList(res.getStringArray(R.array.hardware_keys_action_entries)));
+        List<String> values = new ArrayList<>(
+                Arrays.asList(res.getStringArray(R.array.hardware_keys_action_values)));
 
-            if (hasBackKey) {
-                mBackLongPressAction.setEntries(actionEntriesGo);
-                mBackLongPressAction.setEntryValues(actionValuesGo);
-            }
+        // hide split screen option unconditionally - it doesn't work at the moment
+        // once someone gets it working again: hide it only for low-ram devices
+        // (check ActivityManager.isLowRamDeviceStatic())
+        unsupportedValues.add(Action.SPLIT_SCREEN.ordinal());
 
-            if (hasHomeKey) {
-                mHomeLongPressAction.setEntries(actionEntriesGo);
-                mHomeLongPressAction.setEntryValues(actionValuesGo);
-
-                mHomeDoubleTapAction.setEntries(actionEntriesGo);
-                mHomeDoubleTapAction.setEntryValues(actionValuesGo);
-            }
-
-            if (hasMenuKey) {
-                mMenuPressAction.setEntries(actionEntriesGo);
-                mMenuPressAction.setEntryValues(actionValuesGo);
-
-                mMenuLongPressAction.setEntries(actionEntriesGo);
-                mMenuLongPressAction.setEntryValues(actionValuesGo);
-            }
-
-            if (hasAssistKey) {
-                mAssistPressAction.setEntries(actionEntriesGo);
-                mAssistPressAction.setEntryValues(actionValuesGo);
-
-                mAssistLongPressAction.setEntries(actionEntriesGo);
-                mAssistLongPressAction.setEntryValues(actionValuesGo);
-            }
-
-            if (hasAppSwitchKey) {
-                mAppSwitchPressAction.setEntries(actionEntriesGo);
-                mAppSwitchPressAction.setEntryValues(actionValuesGo);
-
-                mAppSwitchLongPressAction.setEntries(actionEntriesGo);
-                mAppSwitchLongPressAction.setEntryValues(actionValuesGo);
-            }
-
-            mNavigationBackLongPressAction.setEntries(actionEntriesGo);
-            mNavigationBackLongPressAction.setEntryValues(actionValuesGo);
-
-            mNavigationHomeLongPressAction.setEntries(actionEntriesGo);
-            mNavigationHomeLongPressAction.setEntryValues(actionValuesGo);
-
-            mNavigationHomeDoubleTapAction.setEntries(actionEntriesGo);
-            mNavigationHomeDoubleTapAction.setEntryValues(actionValuesGo);
-
-            mNavigationAppSwitchLongPressAction.setEntries(actionEntriesGo);
-            mNavigationAppSwitchLongPressAction.setEntryValues(actionValuesGo);
-
-            mEdgeLongSwipeAction.setEntries(actionEntriesGo);
-            mEdgeLongSwipeAction.setEntryValues(actionValuesGo);
+        for (int unsupportedValue: unsupportedValues) {
+            entries.remove(unsupportedValue);
+            values.remove(unsupportedValue);
         }
+
+        String[] actionEntries = entries.toArray(new String[0]);
+        String[] actionValues = values.toArray(new String[0]);
+
+        if (hasBackKey) {
+            mBackLongPressAction.setEntries(actionEntries);
+            mBackLongPressAction.setEntryValues(actionValues);
+        }
+
+        if (hasHomeKey) {
+            mHomeLongPressAction.setEntries(actionEntries);
+            mHomeLongPressAction.setEntryValues(actionValues);
+
+            mHomeDoubleTapAction.setEntries(actionEntries);
+            mHomeDoubleTapAction.setEntryValues(actionValues);
+        }
+
+        if (hasMenuKey) {
+            mMenuPressAction.setEntries(actionEntries);
+            mMenuPressAction.setEntryValues(actionValues);
+
+            mMenuLongPressAction.setEntries(actionEntries);
+            mMenuLongPressAction.setEntryValues(actionValues);
+        }
+
+        if (hasAssistKey) {
+            mAssistPressAction.setEntries(actionEntries);
+            mAssistPressAction.setEntryValues(actionValues);
+
+            mAssistLongPressAction.setEntries(actionEntries);
+            mAssistLongPressAction.setEntryValues(actionValues);
+        }
+
+        if (hasAppSwitchKey) {
+            mAppSwitchPressAction.setEntries(actionEntries);
+            mAppSwitchPressAction.setEntryValues(actionValues);
+
+            mAppSwitchLongPressAction.setEntries(actionEntries);
+            mAppSwitchLongPressAction.setEntryValues(actionValues);
+        }
+
+        mNavigationBackLongPressAction.setEntries(actionEntries);
+        mNavigationBackLongPressAction.setEntryValues(actionValues);
+
+        mNavigationHomeLongPressAction.setEntries(actionEntries);
+        mNavigationHomeLongPressAction.setEntryValues(actionValues);
+
+        mNavigationHomeDoubleTapAction.setEntries(actionEntries);
+        mNavigationHomeDoubleTapAction.setEntryValues(actionValues);
+
+        mNavigationAppSwitchLongPressAction.setEntries(actionEntries);
+        mNavigationAppSwitchLongPressAction.setEntryValues(actionValues);
+
+        mEdgeLongSwipeAction.setEntries(actionEntries);
+        mEdgeLongSwipeAction.setEntryValues(actionValues);
     }
 
     @Override
@@ -694,28 +696,17 @@ public class ButtonSettings extends SettingsPreferenceFragment
     }
 
     private void toggleTaskBarDependencies(boolean enabled) {
-        if (mNavigationArrowKeys != null) {
-            mNavigationArrowKeys.setEnabled(!enabled);
-        }
+        enablePreference(mNavigationArrowKeys, !enabled);
+        enablePreference(mNavBarInverse, !enabled);
+        enablePreference(mNavigationBackLongPressAction, !enabled);
+        enablePreference(mNavigationHomeLongPressAction, !enabled);
+        enablePreference(mNavigationHomeDoubleTapAction, !enabled);
+        enablePreference(mNavigationAppSwitchLongPressAction, !enabled);
+    }
 
-        if (mNavBarInverse != null) {
-            mNavBarInverse.setEnabled(!enabled);
-        }
-
-        if (mNavigationBackLongPressAction != null) {
-            mNavigationBackLongPressAction.setEnabled(!enabled);
-        }
-
-        if (mNavigationHomeLongPressAction != null) {
-            mNavigationHomeLongPressAction.setEnabled(!enabled);
-        }
-
-        if (mNavigationHomeDoubleTapAction != null) {
-            mNavigationHomeDoubleTapAction.setEnabled(!enabled);
-        }
-
-        if (mNavigationAppSwitchLongPressAction != null) {
-            mNavigationAppSwitchLongPressAction.setEnabled(!enabled);
+    private void enablePreference(Preference pref, boolean enabled) {
+        if (pref != null) {
+            pref.setEnabled(enabled);
         }
     }
 
@@ -784,44 +775,24 @@ public class ButtonSettings extends SettingsPreferenceFragment
             }
         }
         if (backCategory != null) {
-            if (mBackLongPressAction != null) {
-                mBackLongPressAction.setEnabled(!navbarEnabled);
-            }
+            enablePreference(mBackLongPressAction, !navbarEnabled);
         }
         if (homeCategory != null) {
-            if (mHomeAnswerCall != null) {
-                mHomeAnswerCall.setEnabled(!navbarEnabled);
-            }
-            if (mHomeLongPressAction != null) {
-                mHomeLongPressAction.setEnabled(!navbarEnabled);
-            }
-            if (mHomeDoubleTapAction != null) {
-                mHomeDoubleTapAction.setEnabled(!navbarEnabled);
-            }
+            enablePreference(mHomeAnswerCall, !navbarEnabled);
+            enablePreference(mHomeLongPressAction, !navbarEnabled);
+            enablePreference(mHomeDoubleTapAction, !navbarEnabled);
         }
         if (menuCategory != null) {
-            if (mMenuPressAction != null) {
-                mMenuPressAction.setEnabled(!navbarEnabled);
-            }
-            if (mMenuLongPressAction != null) {
-                mMenuLongPressAction.setEnabled(!navbarEnabled);
-            }
+            enablePreference(mMenuPressAction, !navbarEnabled);
+            enablePreference(mMenuLongPressAction, !navbarEnabled);
         }
         if (assistCategory != null) {
-            if (mAssistPressAction != null) {
-                mAssistPressAction.setEnabled(!navbarEnabled);
-            }
-            if (mAssistLongPressAction != null) {
-                mAssistLongPressAction.setEnabled(!navbarEnabled);
-            }
+            enablePreference(mAssistPressAction, !navbarEnabled);
+            enablePreference(mAssistLongPressAction, !navbarEnabled);
         }
         if (appSwitchCategory != null) {
-            if (mAppSwitchPressAction != null) {
-                mAppSwitchPressAction.setEnabled(!navbarEnabled);
-            }
-            if (mAppSwitchLongPressAction != null) {
-                mAppSwitchLongPressAction.setEnabled(!navbarEnabled);
-            }
+            enablePreference(mAppSwitchPressAction, !navbarEnabled);
+            enablePreference(mAppSwitchLongPressAction, !navbarEnabled);
         }
     }
 

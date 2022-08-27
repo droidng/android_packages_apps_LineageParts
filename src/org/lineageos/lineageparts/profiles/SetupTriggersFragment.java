@@ -22,7 +22,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,11 +75,6 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final PartsActivity activity = (PartsActivity) getActivity();
@@ -114,7 +108,7 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
         View root = inflater.inflate(R.layout.fragment_setup_triggers, container, false);
 
         mPager = (RtlCompatibleViewPager) root.findViewById(R.id.view_pager);
-        mTabLayout = (SlidingTabLayout) root.findViewById(R.id.sliding_tabs);
+        mTabLayout = root.findViewById(R.id.sliding_tabs);
         mAdapter = new TriggerPagerAdapter(getActivity(), getChildFragmentManager());
 
         Bundle profileArgs = new Bundle();
@@ -124,7 +118,7 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
                 TriggerPagerAdapter.TriggerFragments.values();
 
         for (final TriggerPagerAdapter.TriggerFragments fragment : fragments) {
-            if (fragment.getFragmentClass() == NfcTriggerFragment.class) {
+            if (fragment.getFragmentClass().equals(NfcTriggerFragment.class)) {
                 if (!getActivity().getPackageManager().hasSystemFeature(
                         PackageManager.FEATURE_NFC)) {
                     // device doesn't have NFC
@@ -138,27 +132,21 @@ public class SetupTriggersFragment extends SettingsPreferenceFragment {
 
         if (mNewProfileMode) {
             showButtonBar(true);
-            getNextButton().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle args = new Bundle();
-                    args.putParcelable(ProfilesSettings.EXTRA_PROFILE,  mProfile);
-                    args.putBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, mNewProfileMode);
+            getNextButton().setOnClickListener(view -> {
+                Bundle args = new Bundle();
+                args.putParcelable(ProfilesSettings.EXTRA_PROFILE, mProfile);
+                args.putBoolean(ProfilesSettings.EXTRA_NEW_PROFILE, mNewProfileMode);
 
-                    PartsActivity pa = (PartsActivity) getActivity();
-                    pa.startPreferencePanel(SetupActionsFragment.class.getCanonicalName(), args,
-                            R.string.profile_profile_manage, null,
-                            SetupTriggersFragment.this, REQUEST_SETUP_ACTIONS);
-                }
+                PartsActivity pa = (PartsActivity) getActivity();
+                pa.startPreferencePanel(SetupActionsFragment.class.getCanonicalName(), args,
+                        R.string.profile_profile_manage, null,
+                        SetupTriggersFragment.this, REQUEST_SETUP_ACTIONS);
             });
 
             // back button
-            getBackButton().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    finishPreferencePanel(SetupTriggersFragment.this, Activity.RESULT_CANCELED, null);
-                }
-            });
+            getBackButton().setOnClickListener(view ->
+                    finishPreferencePanel(SetupTriggersFragment.this, Activity.RESULT_CANCELED,
+                    null));
         }
         return root;
     }

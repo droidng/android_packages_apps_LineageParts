@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,13 @@ import android.text.TextUtils;
 import lineageos.providers.LineageSettings;
 
 import java.math.BigInteger;
-import java.net.NetworkInterface;
 import java.security.MessageDigest;
 import java.util.Locale;
 
 public class Utilities {
     public static String getUniqueID(Context context) {
-        final String id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        final String id = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
         return digest(context.getPackageName() + id);
     }
 
@@ -93,7 +93,6 @@ public class Utilities {
 
     /**
      * Check to see if global stats are enabled.
-     * @param context
      * @return Whether or not stats collection is enabled.
      */
     public static boolean isStatsCollectionEnabled(Context context) {
@@ -103,7 +102,6 @@ public class Utilities {
 
     /**
      * Enabled or disable stats collection
-     * @param context
      * @param enabled Boolean that sets collection being enabled.
      */
     public static void setStatsCollectionEnabled(Context context, boolean enabled) {
